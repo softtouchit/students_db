@@ -1,0 +1,33 @@
+<site domain="dev.test">
+    <common>
+        <head>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width,  initial-scale=1" />
+            <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+            <title>Tutorial 4</title>
+        </head>
+    </common>
+    <page template="templates/single.xml" path="">
+        <head>
+            <script src="js/core.js" />
+            <script src="js/addStudent.js" />
+        </head>
+        <load href="content/aboutSite.xml" to="content" />
+    </page>
+    
+    <resources dir="images" path="images" />
+    <resources dir="css" path="css" />
+    <resources dir="js" path="js" />
+    <resources dir="fonts" path="fonts" />
+    
+    
+    <services>
+     <service store="students.db" storeType="binary" primaryKey="id" fields="id,studentNo,name" dict="id,studentNo:s!,name:!,age:i,sex:!,created:t" seqKey="true" validators="studentNo:size(4,8)">
+        <post path="/students" xpipe="http://www.xmlpipe.org/xpe/db/unique/record/post" />
+        <get path="/student" xpipe="http://www.xmlpipe.org/xpe/db/unique/record/get" />
+        <del path="/student"  xpipe="http://www.xmlpipe.org/xpe/db/unique/record/del" />
+        <get path="/students" xpipe="http://www.xmlpipe.org/xpe/db/search" />
+     </service>
+    </services>
+    
+</site>
