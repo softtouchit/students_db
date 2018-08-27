@@ -15,6 +15,21 @@
         <load href="content/aboutSite.xml" to="content" />
     </page>
     
+    <page template="templates/single.xml" path="students">
+        <head>
+            <link rel="stylesheet" href="/css/bootstrap.min.css" />  
+            <script src="js/jquery-3.3.1.slim.min.js" />
+            <script src="js/bootstrap.min.js" />
+            <script src="js/core.js" />
+            <script src="js/table.js" />
+            <script src="js/buttons.js" />
+            <script src="js/moment.min.js" />
+            <script src="js/students.js" />
+        </head>
+        <load href="content/students.xml" to="content" />
+    </page>
+    
+    
     <resources dir="images" path="images" />
     <resources dir="css" path="css" />
     <resources dir="js" path="js" />
@@ -22,11 +37,11 @@
     
     
     <services>
-     <service store="students.db" storeType="binary" primaryKey="id" fields="id,studentNo,name" dict="id,studentNo:s!,name:!,age:i,sex:!,created:t" seqKey="true" validators="studentNo:size(4,8)">
-        <post path="/students" xpipe="http://www.xmlpipe.org/xpe/db/unique/record/post" />
-        <get path="/student" xpipe="http://www.xmlpipe.org/xpe/db/unique/record/get" />
-        <del path="/student"  xpipe="http://www.xmlpipe.org/xpe/db/unique/record/del" />
-        <get path="/students" xpipe="http://www.xmlpipe.org/xpe/db/search" />
+     <service store="students.db" storeType="binary" sorted="id"  primaryKey="id" fields="id,studentNo,name" dict="id,studentNo:s!,name:!,age:i,sex:!,created:t" seqKey="true" validators="studentNo:size(4,8)">
+        <post path="/json/students" xpipe="http://www.xmlpipe.org/xpe/db/unique/record/post" />
+        <get path="/json/student" xpipe="http://www.xmlpipe.org/xpe/db/unique/record/get" />
+        <del path="/json/student"  xpipe="http://www.xmlpipe.org/xpe/db/unique/record/del" />
+        <get path="/json/students" xpipe="http://www.xmlpipe.org/xpe/db/search" />
      </service>
     </services>
     

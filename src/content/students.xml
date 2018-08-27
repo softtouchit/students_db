@@ -1,0 +1,42 @@
+<content>
+    <div id="studentsPanel">
+         <h2>Students</h2>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-sm" id="students" data-col-names="id,studentNo,name,age,sex,created,Actions"  data-src="json/students?sortby=id" >
+            </table>
+            <div id="pagination" >
+          </div>
+        </div>    
+    </div>
+    <div class="modal" tabindex="-1" role="dialog" id="addStudent">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                     <h5 class="modal-title">Add a student</h5>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span>
+
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="addStudentForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" name="name" aria-describedby="nameHelp" placeholder="Student name" required="true" /> <small id="nameHelp" class="form-text text-muted">The name of the student</small>
+
+                        </div>
+
+                    </form>
+                    
+                    <div id="createResult" ></div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-onclick="create">Submit</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</content>

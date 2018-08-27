@@ -17,7 +17,7 @@ X.sub("init", function() {
     student.age=form.age.value;
     student.sex=form.sex.value;
     
-    X.post("/students", student, function(resp) {
+    X.post("/json/students", student, function(resp) {
         status.innerHTML=resp;
     });
    
